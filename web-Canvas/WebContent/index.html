@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Ejemplo Canvas</title>
+</head>
+<body>
+<!--  he creado una etiqueta CANVAS, miCanvas con unas caracteristicas, un tapiz
+en el que puedo dibujar 
+si quiero manipular en miCanvas necesito darle un id, para manipularlo como objeto
+mas adelante-->
+<canvas id="miCanvas" width="800" height="600" style="background-color: aqua;">
+	Tu navegador no soporta canvas
+</canvas>
+<!-- en una etiqueta SCRIPT lo que va dentro es javascript
+ con document.getElementByld recupero el elemento con id miCanvas, el tapiz
+ para dibujar en el canvas necesito recuperar el contexto, el entorno de dibujo, con IF-->
+ 
+
+<script>
+var canvas = document.getElementById("miCanvas");
+if (canvas.getContext('2d')!=null) {
+	var contexto = canvas.getContext('2d');
+/*marco el color del poligono, una parte de el, el tronco*/
+	contexto.fillStyle = "#78644A";
+	contexto.fillRect(100, 150, 30, 50); // Left, Top, Width, Height /*marco las coordenadas*/
+	contexto.fillStyle = "#38672B"; /* color de copa*/
+	/*empieza el poligono*/
+	contexto.beginPath();	
+	
+	/*marco los trazos*/
+	contexto.moveTo(100, 150);
+	contexto.lineTo(90, 150);
+	contexto.lineTo(65, 140);
+	contexto.lineTo(70, 100);
+	contexto.lineTo(95, 65);
+	contexto.lineTo(130, 70);
+	contexto.lineTo(150, 90);
+	contexto.lineTo(160, 100);
+	contexto.lineTo(160, 140);
+	contexto.lineTo(145, 150);
+	/*termino el poligono*/
+	contexto.closePath();
+	/* fill es el que rellena el poligono*/
+	contexto.fill();
+}
+</script>
+
+</body>
+</html>
